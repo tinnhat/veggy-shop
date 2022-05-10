@@ -1,0 +1,88 @@
+$anim-speed: 0.5s;
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.product {
+  padding-top: 100px;
+}
+.box-filter {
+  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+  padding: 10px;
+  .text-filter {
+    text-align: center;
+  }
+  .checkbox-sort {
+    margin-bottom: 20px;
+  }
+}
+
+.animation-product {
+  opacity: 0;
+  animation: fadeProduct $anim-speed linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0.8s;
+  @for $i from 1 through 21 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.05s;
+    }
+  }
+}
+@keyframes fadeProduct {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.pagination-box {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  .pagnitionsBttns {
+    display: flex;
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    a {
+      padding: 8px 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: 1px solid #077915;
+      color: #077915;
+      &:hover {
+        transition: all 0.2s linear;
+        color: #fff;
+        background-color: #077915;
+      }
+    }
+  }
+  .paginationActive a {
+    color: #fff;
+    background-color: #077915;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .product {
+    #menu-find {
+      display: none;
+    }
+  }
+}
+.not-found-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
